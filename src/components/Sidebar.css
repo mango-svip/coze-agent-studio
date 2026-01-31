@@ -1,0 +1,218 @@
+.sidebar {
+    width: 72px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 100;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.sidebar.expanded {
+    width: 260px;
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+    padding: var(--spacing-20) 0;
+    margin: 0 var(--spacing-16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: var(--spacing-12);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    min-width: 0;
+}
+
+.brand-logo {
+    width: 32px;
+    height: 32px;
+    background: var(--accent-light);
+    color: var(--accent-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.sidebar.expanded .sidebar-title {
+    opacity: 1;
+}
+
+.sidebar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.sidebar.expanded .sidebar-actions {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.agent-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 var(--spacing-12);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-20) 0;
+    opacity: 0.5;
+}
+
+.agent-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-8);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: transparent;
+    position: relative;
+    min-height: 48px;
+}
+
+.agent-item:hover {
+    background: var(--bg-hover);
+}
+
+.agent-item.active {
+    background: var(--bg-tertiary);
+    box-shadow: var(--shadow-sm);
+}
+
+.agent-item.active::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 20%;
+    height: 60%;
+    width: 4px;
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
+}
+
+.agent-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    flex: 1;
+    min-width: 0;
+}
+
+.agent-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.agent-item.active .agent-icon {
+    background: var(--accent-light);
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.agent-details {
+    flex: 1;
+    min-width: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.sidebar.expanded .agent-details {
+    opacity: 1;
+}
+
+.agent-name {
+    font-weight: 550;
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.agent-url {
+    color: var(--text-tertiary);
+    font-size: 11px;
+    font-family: var(--font-mono);
+}
+
+.agent-item-actions {
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all var(--transition-fast);
+    pointer-events: none;
+}
+
+.sidebar.expanded .agent-item:hover .agent-item-actions {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.sidebar-footer {
+    padding: var(--spacing-16);
+    border-top: 1px solid var(--border-color);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.sidebar.expanded .footer-content {
+    opacity: 1;
+}
+
+.agent-count {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    font-weight: 500;
+}

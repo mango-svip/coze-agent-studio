@@ -1,0 +1,123 @@
+.conversation-panel {
+    width: 280px;
+    height: 100%;
+    background: var(--bg-primary);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.conversation-header {
+    height: 64px;
+    padding: 0 var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.conversation-header h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.conversation-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.conversation-item {
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: transparent;
+}
+
+.conversation-item:hover {
+    background: var(--bg-secondary);
+}
+
+.conversation-item.active {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+}
+
+.conversation-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.conversation-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+    line-height: 1.4;
+}
+
+.conversation-date {
+    font-size: 11px;
+    color: var(--text-tertiary);
+}
+
+.conversation-actions {
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transform: translateX(5px);
+    transition: all var(--transition-fast);
+}
+
+.conversation-item:hover .conversation-actions {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.conversation-actions .btn-icon {
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.conversation-edit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.conversation-edit input {
+    flex: 1;
+    height: 28px;
+    padding: 0 8px;
+    border: 1px solid var(--accent-primary);
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 12px;
+    outline: none;
+}
+
+.btn-delete.confirming {
+    background: rgba(255, 77, 79, 0.1) !important;
+    border: 1px solid rgba(255, 77, 79, 0.3) !important;
+}
+
+.btn-delete.confirming:hover {
+    background: rgba(255, 77, 79, 0.2) !important;
+}

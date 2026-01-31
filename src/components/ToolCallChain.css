@@ -1,0 +1,113 @@
+.tool-call-chain {
+    margin: var(--spacing-16) 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.tool-chain-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-12) var(--spacing-16);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.tool-chain-header:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-light);
+}
+
+.tool-chain-header.expanded {
+    background: var(--bg-secondary);
+    border-bottom: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+}
+
+.status-dot.success {
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.tool-call-chain {
+    margin-bottom: 8px;
+    padding-left: 12px;
+    border-left: 2px solid #e5e5e5;
+}
+
+.tool-chain-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.tool-chain-title {
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tool-chain-title::before {
+    content: "🔧";
+    font-size: 14px;
+}
+
+.tool-calls-grid {
+    margin-top: 4px;
+}
+
+.tool-call-card {
+    font-size: 14px;
+    color: #666;
+    padding: 2px 0;
+}
+
+.status-badge,
+.chain-expand-icon,
+.timeline-connector,
+.tool-id-tag,
+.tool-status-label,
+.details-toggle {
+    display: none;
+}
+
+.detail-code pre {
+    margin: 0;
+}
+
+.detail-code code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.detail-code.output {
+    background: #000;
+}
+
+.detail-code.output code {
+    color: #10b981;
+}

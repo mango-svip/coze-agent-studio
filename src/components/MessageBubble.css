@@ -1,0 +1,349 @@
+.message-bubble-wrapper {
+    margin-bottom: var(--spacing-32);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 85%;
+    animation: message-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.message-bubble-wrapper.user {
+    align-self: flex-end;
+    align-items: flex-end;
+    max-width: 70%;
+}
+
+
+.message-bubble-wrapper.assistant {
+    align-self: flex-start;
+}
+
+@keyframes message-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-bubble-wrapper.assistant {
+    padding-left: var(--spacing-16);
+}
+
+/* Assistant accent bar removed as per reference images */
+.assistant-accent-bar {
+    display: none;
+}
+
+
+.message-bubble {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    margin-bottom: var(--spacing-4);
+}
+
+.user .message-header {
+    justify-content: flex-end;
+}
+
+.assistant .message-header {
+    justify-content: flex-start;
+}
+
+.message-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.message-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.message-role-name {
+    display: none;
+}
+
+.message-agent-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+
+.message-actions {
+    display: flex;
+    gap: var(--spacing-4);
+}
+
+.user .message-actions {
+    margin-right: var(--spacing-4);
+}
+
+.assistant .message-actions {
+    margin-left: var(--spacing-4);
+}
+
+.btn-icon-xs {
+    background: transparent;
+    color: var(--text-tertiary);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.btn-icon-xs:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.message-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #f4f4f5;
+    max-width: 100%;
+}
+
+.user .message-content {
+    background: #e5e5ea;
+    color: #333;
+    border-radius: 12px;
+    width: fit-content;
+    align-self: flex-end;
+}
+
+
+.assistant .message-content {
+    background: #f4f4f5;
+    border: none;
+}
+
+
+/* Markdown Specifics */
+.markdown-content>*:first-child {
+    margin-top: 0;
+}
+
+.markdown-content>*:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-content p {
+    margin-bottom: var(--spacing-16);
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+    margin: var(--spacing-24) 0 var(--spacing-12);
+    font-weight: 700;
+    line-height: var(--line-lg);
+    color: var(--text-primary);
+}
+
+.markdown-content h1 {
+    font-size: 24px;
+}
+
+.markdown-content h2 {
+    font-size: 20px;
+}
+
+.markdown-content h3 {
+    font-size: 18px;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin: 0 0 var(--spacing-16) var(--spacing-20);
+}
+
+.markdown-content li {
+    margin-bottom: var(--spacing-8);
+}
+
+/* User Bubble Overrides */
+.user .markdown-content p,
+.user .markdown-content h1,
+.user .markdown-content h2,
+.user .markdown-content h3,
+.user .markdown-content li,
+.user .markdown-content table,
+.user .markdown-content th,
+.user .markdown-content td {
+    color: white !important;
+}
+
+.user .markdown-content th,
+.user .markdown-content td {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.user .markdown-content tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Code Blocks */
+.code-block-container {
+    margin: var(--spacing-16) 0;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    background: #000;
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-8) var(--spacing-16);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.code-lang {
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+}
+
+.copy-code-btn {
+    background: transparent;
+    color: var(--text-tertiary);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-code-btn:hover {
+    color: var(--text-primary);
+}
+
+.code-block-container pre {
+    margin: 0 !important;
+    padding: var(--spacing-16) !important;
+    background: transparent !important;
+}
+
+.code-block-container code {
+    font-family: var(--font-mono) !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+}
+
+/* Tables */
+.table-container {
+    margin: var(--spacing-16) 0;
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+}
+
+.markdown-content th {
+    background: var(--bg-tertiary);
+    text-align: left;
+    padding: var(--spacing-12) var(--spacing-16);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-content td {
+    padding: var(--spacing-12) var(--spacing-16);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-content tr:last-child td {
+    border-bottom: none;
+}
+
+.markdown-content tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Streaming Effects */
+.thinking-bubble {
+    display: flex;
+    gap: 4px;
+    padding: var(--spacing-8) 0;
+}
+
+.thinking-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    animation: thinking-jump 1.4s infinite ease-in-out;
+}
+
+.thinking-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.thinking-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes thinking-jump {
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-6px);
+    }
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--accent-primary);
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    50% {
+        opacity: 0;
+    }
+}
