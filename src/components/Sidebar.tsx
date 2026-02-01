@@ -1,24 +1,7 @@
 import './Sidebar.css';
-import { Agent } from '../types';
 import ThemeToggle from './ThemeToggle';
 
-interface SidebarProps {
-    agents: Agent[];
-    selectedAgent: Agent | null;
-    onSelectAgent: (agent: Agent) => void;
-    onAddAgent: () => void;
-    onEditAgent: (agent: Agent) => void;
-    onDeleteAgent: (id: string) => void;
-}
-
-export default function Sidebar({
-    agents,
-    selectedAgent,
-    onSelectAgent,
-    onAddAgent,
-    onEditAgent,
-    onDeleteAgent,
-}: SidebarProps) {
+export default function Sidebar() {
     return (
         <div className="sidebar-slim">
             <div className="sidebar-logo">

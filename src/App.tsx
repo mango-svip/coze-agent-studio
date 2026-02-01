@@ -320,17 +320,7 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar
-        agents={agents}
-        selectedAgent={selectedAgent}
-        onSelectAgent={handleSelectAgent}
-        onAddAgent={() => {
-          setEditingAgent(null);
-          setIsModalOpen(true);
-        }}
-        onEditAgent={handleEditAgent}
-        onDeleteAgent={handleDeleteAgent}
-      />
+      <Sidebar />
       <main className="main-canvas">
         <ChatArea
           agent={selectedAgent}
