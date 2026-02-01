@@ -7,6 +7,7 @@ import ChatArea from './components/ChatArea';
 import AgentModal from './components/AgentModal';
 import ContextPanel from './components/ContextPanel';
 import { Agent, CreateAgentInput, Message, Conversation, StreamEvent } from './types';
+import RightSidebar from './components/RightSidebar';
 
 function App() {
   const [agents, setAgents] = useState<Agent[]>([]);
@@ -334,16 +335,28 @@ function App() {
         <ChatArea
           agent={selectedAgent}
           messages={messages}
-          conversations={conversations}
-          selectedConversation={currentConversation}
           onSendMessage={handleSendMessage}
           onCreateConversation={handleCreateConversation}
-          onSelectConversation={handleSelectConversation}
-          onDeleteConversation={handleDeleteConversation}
           isLoading={isLoading}
-          onToggleContext={() => setShowContext(!showContext)}
         />
       </main>
+
+      <RightSidebar
+        agents={agents}
+        selectedAgent={selectedAgent}
+        onSelectAgent={handleSelectAgent}
+        onAddAgent={() => {
+          setEditingAgent(null);
+          setIsModalOpen(true);
+        }}
+        onEditAgent={handleEditAgent}
+        onDeleteAgent={handleDeleteAgent}
+        conversations={conversations}
+        selectedConversation={currentConversation}
+        onSelectConversation={handleSelectConversation}
+        onCreateConversation={handleCreateConversation}
+        onDeleteConversation={handleDeleteConversation}
+      />
 
       <ContextPanel
         isOpen={showContext}

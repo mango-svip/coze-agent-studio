@@ -45,8 +45,8 @@ export default function ToolCallChain({ toolCalls }: ToolCallChainProps) {
                         )}
                         <span className="tool-chain-title">
                             {runningCount > 0
-                                ? `Processing (${toolCalls.length} tools)`
-                                : `Execution Flow (${toolCalls.length} steps)`}
+                                ? `Running Tools (${toolCalls.length})`
+                                : `Execution Log (${toolCalls.length})`}
                         </span>
                     </div>
                 </div>
